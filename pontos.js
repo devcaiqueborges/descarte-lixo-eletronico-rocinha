@@ -1,5 +1,5 @@
 // Pontos de descarte. Abree. Horários, telefones e coordenadas: Google Maps.
-// Para adicionar um lugar, copie um bloco e mude os dados. Veja o README.
+// Para adicionar um lugar, copie um bloco e mude os dados.
 // "materiais" aceita: pilhas, baterias, celulares, notebooks, computadores.
 
 const PONTOS = [
