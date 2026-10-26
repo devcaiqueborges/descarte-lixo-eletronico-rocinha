@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Onde descartar lixo eletrônico – Rocinha</title>
+  <meta name="description" content="Veja onde descartar pilhas, baterias, celulares, notebooks e computadores na Rocinha, Rio de Janeiro.">
+  <meta name="theme-color" content="#0A5C36">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Onde descartar lixo eletrônico – Rocinha">
+  <meta property="og:description" content="Pilhas, baterias, celulares, notebooks e computadores. Veja os lugares no mapa ou na lista.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E♻️%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="pular" id="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <nav class="barra" aria-label="Navegação do site">
+      <button type="button" class="btn btn--barra" id="btn-voltar" aria-disabled="true">
+        <span aria-hidden="true">←</span> Voltar
+      </button>
+      <button type="button" class="btn btn--barra" id="btn-inicio" aria-disabled="true">
+        <span aria-hidden="true">🏠</span> Início
+      </button>
+      <div class="letra" role="group" aria-label="Tamanho da letra">
+        <button type="button" class="btn btn--barra btn--letra" id="btn-letra-menos" aria-label="Diminuir a letra">A−</button>
+        <button type="button" class="btn btn--barra btn--letra" id="btn-letra-mais" aria-label="Aumentar a letra">A+</button>
+      </div>
+    </nav>
+  </header>
+
+  <p id="anuncio" class="sr-only" role="status" aria-live="polite"></p>
+
+  <noscript>
+    <p class="aviso aviso--sem-js">Este site precisa de JavaScript para funcionar. Ative o JavaScript no seu celular e abra de novo.</p>
+  </noscript>
+
+  <main id="conteudo" tabindex="-1">
+
+    <section id="tela-inicio" class="tela" aria-labelledby="titulo-inicio">
+      <h1 id="titulo-inicio" tabindex="-1" data-titulo>Onde descartar lixo eletrônico</h1>
+      <p class="intro">Na Rocinha. Para pilhas, baterias, celulares, notebooks e computadores. Toque em um botão.</p>
+
+      <div class="pilha-botoes">
+        <button type="button" class="btn btn--grande btn--bloco" data-ir="mapa">
+          <span class="icone" aria-hidden="true">🗺️</span> Ver no mapa
+        </button>
+        <button type="button" class="btn btn--grande btn--bloco btn--azul" data-ir="lista">
+          <span class="icone" aria-hidden="true">📋</span> Ver lista de lugares
+        </button>
+        <button type="button" class="btn btn--grande btn--bloco btn--amarelo" data-ir="info">
+          <span class="icone" aria-hidden="true">❓</span> O que posso descartar?
+        </button>
+      </div>
+    </section>
+
+    <section id="tela-mapa" class="tela" aria-labelledby="titulo-mapa" hidden>
+      <h2 id="titulo-mapa" tabindex="-1" data-titulo>Mapa dos lugares</h2>
+      <p>Escolha o material. Depois toque em um marcador verde no mapa.</p>
+
+      <div class="filtro" data-filtro role="group" aria-label="Filtrar por material"></div>
+      <p class="resultado" data-resultado role="status" aria-live="polite"></p>
+
+      <div id="mapa-estado" class="aviso" hidden>
+        <p id="mapa-estado-texto" role="status"></p>
+        <div id="mapa-estado-botoes" class="acoes" hidden>
+          <button type="button" class="btn" id="mapa-tentar">Tentar de novo</button>
+          <button type="button" class="btn btn--azul" data-ir="lista">Ver lista de lugares</button>
+        </div>
+      </div>
+
+      <div id="mapa" role="region" aria-label="Mapa com os lugares de descarte"></div>
+      <div id="detalhe-mapa" class="detalhe" aria-live="polite"></div>
+    </section>
+
+    <section id="tela-lista" class="tela" aria-labelledby="titulo-lista" hidden>
+      <h2 id="titulo-lista" tabindex="-1" data-titulo>Lista de lugares</h2>
+      <p>Escolha o material para ver só os lugares que aceitam.</p>
+
+      <div class="filtro" data-filtro role="group" aria-label="Filtrar por material"></div>
+      <p class="resultado" data-resultado role="status" aria-live="polite"></p>
+
+      <div id="lista-cartoes"></div>
+    </section>
+
+    <section id="tela-info" class="tela" aria-labelledby="titulo-info" hidden>
+      <h2 id="titulo-info" tabindex="-1" data-titulo>O que posso descartar?</h2>
+
+      <div class="aviso aviso--forte" role="note">
+        <span class="aviso__icone" aria-hidden="true">⚠️</span>
+        <p><strong>Não jogue no lixo comum.</strong> Faz mal para a saúde e para o meio ambiente.</p>
+      </div>
+
+      <p>Leve o aparelho inteiro, limpo e desligado. Antes, apague suas fotos, senhas e outros dados.</p>
+
+      <article class="cartao">
+        <h3><span aria-hidden="true">🔋</span> Pilhas</h3>
+        <p>São as pilhas pequenas de controle remoto, relógio e brinquedo.</p>
+        <p>Podem ter metais que fazem mal à saúde e à água.</p>
+        <button type="button" class="btn btn--claro btn--bloco" data-material="pilhas">Ver onde descartar pilhas</button>
+      </article>
+
+      <article class="cartao">
+        <h3><span aria-hidden="true">⚡</span> Baterias</h3>
+        <p>São as baterias de celular, de notebook e de outros aparelhos.</p>
+        <p>Podem esquentar e pegar fogo se forem amassadas ou furadas. Leve inteira, sem abrir.</p>
+        <button type="button" class="btn btn--claro btn--bloco" data-material="baterias">Ver onde descartar baterias</button>
+      </article>
+
+      <article class="cartao">
+        <h3><span aria-hidden="true">📱</span> Celulares</h3>
+        <p>Celulares quebrados ou que você não usa mais.</p>
+        <p>Leve com o carregador, se tiver.</p>
+        <button type="button" class="btn btn--claro btn--bloco" data-material="celulares">Ver onde descartar celulares</button>
+      </article>
+
+      <article class="cartao">
+        <h3><span aria-hidden="true">💻</span> Notebooks</h3>
+        <p>Notebooks velhos, quebrados ou que não ligam mais.</p>
+        <p>Leve com o carregador, se tiver.</p>
+        <button type="button" class="btn btn--claro btn--bloco" data-material="notebooks">Ver onde descartar notebooks</button>
+      </article>
+
+      <article class="cartao">
+        <h3><span aria-hidden="true">🖥️</span> Computadores</h3>
+        <p>Computador de mesa e suas peças, como teclado e mouse.</p>
+        <p>Se tiver dúvida, ligue para o local antes de ir.</p>
+        <button type="button" class="btn btn--claro btn--bloco" data-material="computadores">Ver onde descartar computadores</button>
+      </article>
+
+      <button type="button" class="btn btn--grande btn--bloco btn--azul" data-ir="lista">
+        <span class="icone" aria-hidden="true">📋</span> Ver lista de lugares
+      </button>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <p>Fonte dos dados: Abree (materiais aceitos) e Google Maps (horários e telefones). Consultado em 25/10/2026. Os horários podem mudar. Se puder, ligue antes de ir.</p>
+  </footer>
+
+  <aside id="feedback" class="feedback" aria-label="Avaliação do site">
+    <div class="feedback__interno">
+
+      <div id="feedback-painel" class="feedback__painel" hidden>
+        <form id="form-feedback" novalidate>
+          <fieldset>
+            <legend>Como foi usar o site?</legend>
+
+            <label class="opcao">
+              <input type="radio" name="avaliacao" value="gostei">
+              <span class="opcao__texto"><span aria-hidden="true">😀</span> Gostei</span>
+            </label>
+            <label class="opcao">
+              <input type="radio" name="avaliacao" value="mais_ou_menos">
+              <span class="opcao__texto"><span aria-hidden="true">😐</span> Mais ou menos</span>
+            </label>
+            <label class="opcao">
+              <input type="radio" name="avaliacao" value="tive_dificuldade">
+              <span class="opcao__texto"><span aria-hidden="true">🙁</span> Tive dificuldade</span>
+            </label>
+          </fieldset>
+
+          <label for="nome-feedback" class="rotulo-campo">Seu primeiro nome (não precisa)</label>
+          <p id="dica-nome" class="dica">Usamos só para registrar este teste do site.</p>
+          <input type="text" id="nome-feedback" name="nome" maxlength="40" autocomplete="given-name" aria-describedby="dica-nome">
+
+          <label for="comentario" class="rotulo-campo">Quer contar mais? (não precisa)</label>
+          <p id="dica-comentario" class="dica">Não escreva seu telefone nem seu endereço.</p>
+          <textarea id="comentario" name="comentario" rows="3" maxlength="500" aria-describedby="dica-comentario"></textarea>
+
+          <div class="acoes">
+            <button type="submit" class="btn">Enviar</button>
+            <button type="button" class="btn btn--claro" id="feedback-fechar">Fechar</button>
+          </div>
+
+          <p id="feedback-msg" class="msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <button type="button" id="feedback-abrir" class="btn btn--bloco btn--feedback"
+              aria-expanded="false" aria-controls="feedback-painel">
+        <span aria-hidden="true">💬</span> Gostou do site?
+      </button>
+    </div>
+  </aside>
+
+  <script src="pontos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
