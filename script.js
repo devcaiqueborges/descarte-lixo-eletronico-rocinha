@@ -2,13 +2,11 @@
   'use strict';
 
   const CONFIG = {
-    // 'localStorage' (só no aparelho), 'googleSheets' ou 'firebase'. Veja o README.
     enviarPara: 'googleSheets',
     urlGoogleSheets: 'https://script.google.com/macros/s/AKfycbwy65etXAia1CssF875P2B6QfIltGt-4OALt9xJMKapun53ucF7y5Ua1pkemrDz9ZLklA/exec',
     urlFirebase: '',
     centroMapa: [-22.9885, -43.2480],
     zoomMapa: 16,
-    // 'coordenadas' ou 'endereco'
     comoChegarUsa: 'coordenadas',
     leafletCss: 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
     leafletJs: 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'
@@ -409,7 +407,7 @@
 
   // mapa
 
-  // O Leaflet só é baixado quando a pessoa abre o mapa. Se a internet falhar, o resto do site continua funcionando.
+  // O Leaflet só é baixado quando a pessoa abre o mapa. Se a internet falhar, o resto do site continua funcionando
   const carregarLeaflet = () => {
     if (window.L) return Promise.resolve();
     if (promessaLeaflet) return promessaLeaflet;
