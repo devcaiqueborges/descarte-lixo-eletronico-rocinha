@@ -115,6 +115,10 @@ main {
   cursor: pointer;
 }
 .btn:hover { filter: brightness(1.15); }
+.btn { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+
+/* nada pode passar da largura da tela */
+.cartao, .detalhe, .aviso, .dados { overflow-wrap: anywhere; }
 
 .btn--azul { background: var(--azul); border-color: var(--azul); }
 .btn--amarelo { background: var(--amarelo); border-color: var(--texto); color: var(--texto); }
@@ -144,7 +148,7 @@ main {
 /* filtro por material */
 .filtro {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: .6rem;
   margin: 1rem 0 .5rem;
 }
@@ -354,8 +358,12 @@ textarea {
 .msg--erro { color: #8A1010; }
 .msg--ok { color: var(--verde); }
 
+@media (min-width: 30rem) {
+  .filtro { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (min-width: 40rem) {
-  .filtro { grid-template-columns: repeat(3, 1fr); }
+  .filtro { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .cartao .botoes { grid-template-columns: 1fr 1fr; }
 }
 
